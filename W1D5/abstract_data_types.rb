@@ -1,7 +1,6 @@
 # W1D5 HW - Abstract Data Types
 # Anna Oh
 
-
 # Exercise 1 - Stacks
 class Stack
   attr_accessor :ivar
