@@ -14,7 +14,17 @@ class Artist < ApplicationRecord
     tracks_count
   end
 
+
   def better_tracks_query
-    # TODO: your code here
+    albums = self.albums.includes(:tracks)
+
+    tracks_counts = {}
+    albums.each do |album|
+      tracks_counts[album.title] = album.tracks.length
+    end
+
+    album_counts
   end
+
+
 end
