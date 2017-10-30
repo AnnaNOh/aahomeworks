@@ -1,0 +1,19 @@
+<h1>Band Edit</h1>
+
+<% if flash[:errors] %>
+  <ul> <% flash[:errors].each do |error| %>
+    <li> <%= error %> </li>
+  <% end %>
+  </ul>
+<% end %>
+
+<form action=" <%= band_url(@band) %> " method="post">
+<input type="hidden" name="_method" value="patch">
+
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <label for="band_name">Band Name:</label>
+  <input type="text" id="band_name" name="band[name]" value="<%= @band.name %>">
+
+  <input type="submit" value="SUBMIT">
+</form>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MusicApp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <header>
+    <form action="<%= bands_url %>" method="get">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="submit" value="HOME">
+    </form>
+
+  </header>
+
+  <body>
+    <%= yield %>
+
+
+
+    <% if logged_in? %>
+      <br>
+
+      <p>Current User: <%= current_user.email %></p>
+
+      <p>Not <%= current_user.email %>?</p>
+      <form action="<%= session_url %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="submit" value="LOG OUT">
+      </form>
+    <% end %>
+
+  </body>
+</html>
