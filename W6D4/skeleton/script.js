@@ -24,12 +24,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const placeName = document.querySelector(".favorite-input");
       const place = placeName.value;
-      place.value = "";
+
+      placeName.value = "";
+
+      const newLi = document.createElement("li");
+      newLi.textContent = place;
 
       const listOfPlaces = document.querySelector("#sf-places");
-      const newli = document.createElement("li");
-      newli.textContent = place;
-      listOfPlaces.appendChild(newli);
+      listOfPlaces.appendChild(newLi);
     };
 
   const placesSubmitButton = document.querySelector(".favorite-submit");
@@ -41,8 +43,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- your code here!
 
-// Don't Understand Solutions Approach. If photoFormDiv is all with the class photo-form-container
-// then all of them will be photo-form-container hidden. Why bother with the else?
+// Don't Understand Solutions Approach. If photoFormDiv is all with
+// the class photo-form-container then all of them will be
+// photo-form-container hidden. Why bother with the else?
   const ShowPhotoForm = (e) => {
     const photoFormDiv = document.querySelector(".photo-form-container");
     if (photoFormDiv.className === "photo-form-container") {
@@ -53,9 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const photoFormShowButton = document.querySelector(".photo-show-button");
-    photoFormShowButton.addEventListener("click", showPhotoForm);
-
-
+    photoFormShowButton.addEventListener("click", ShowPhotoForm);
 
     const handlePhotoSubmit = (e) => {
       e.preventDefault();
@@ -80,13 +81,8 @@ document.addEventListener("DOMContentLoaded", () => {
       dogPhotosList.appendChild(newPhotoLi);
     };
 
-    //when someone clicks the submit button for photos call the things we just wrote
+    //when someone clicks the submit button for photos
+    //call the things we just wrote
     const photoSubmitButton = document.querySelector(".photo-url-submit");
     photoSubmitButton.addEventListener("click", handlePhotoSubmit);
-});
-
-
-
-
-
 });
